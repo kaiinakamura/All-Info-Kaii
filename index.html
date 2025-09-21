@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL INFO KAIINAKAMURA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(to right, #e94560, #e94560);
+            position: relative;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #fff;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid #e94560;
+        }
+
+        .tab {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #0f3460;
+            background: #e94560;
+        }
+
+        .tab.active {
+            background: #0f3460;
+            color: #e94560;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .store-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .item {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .item-title {
+            font-size: 1.3rem;
+            color: #e94560;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .item-price {
+            color: #4fc3f7;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .item-desc {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .payment-option {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .payment-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .payment-title {
+            font-size: 1.3rem;
+            color: #e94560;
+            margin-bottom: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .payment-title i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .payment-info {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        .payment-details {
+            color: #4fc3f7;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .payment-an {
+            color: #81c784;
+            font-style: italic;
+        }
+
+        .qris-image {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .qris-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid #4fc3f7;
+        }
+
+        .note {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(233, 69, 96, 0.2);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #ffccd5;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e94560;
+            color: #0f3460;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .store-items, .payment-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="https://files.catbox.moe/qisl2l.jpg" alt="ALL INFO KAIINAKAMURA Logo">
+            </div>
+            <h1 class="title">ALL INFO KAIINAKAMURA</h1>
+            <p class="subtitle">Store & Payment Gateway</p>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('store')">STORE</div>
+            <div class="tab" onclick="switchTab('payment')">PAYMENT</div>
+        </div>
+        
+        <div id="store-tab" class="tab-content active">
+            <h2>Produk yang Tersedia</h2>
+            <p>Pilih produk yang ingin Anda beli</p>
+            
+            <div class="store-items">
+                <div class="item">
+                    <h3 class="item-title">Murlog Bvian <span class="badge">TERLARIS</span></h3>
+                    <div class="item-price">Harga: 5K | Own: 10K</div>
+                    <p class="item-desc">Layanan murlog bvian berkualitas tinggi dengan garansi hingga 30 hari. Proses cepat dan aman.</p>
+                </div>
+                
+                <div class="item">
+                    <h3 class="item-title">MURID SUNTIK</h3>
+                    <div class="item-price">Harga: 1K | Own: 3K</div>
+                    <p class="item-desc">Layanan suntik murid dengan kualitas terjamin. Hasil maksimal dan natural.</p>
+                </div>
+                
+                <div class="item">
+                    <h3 class="item-title">Private Account</h3>
+                    <div class="item-price">Harga: 15K | Own: 25K</div>
+                    <p class="item-desc">Akses ke akun premium dengan fitur lengkap dan support 24/7.</p>
+                </div>
+            </div>
+            
+            <div class="note">
+                <i class="fas fa-info-circle"></i> Setelah melakukan pembayaran, harap screenshoot bukti transfer dan kirim ke admin untuk proses verifikasi.
+            </div>
+        </div>
+        
+        <div id="payment-tab" class="tab-content">
+            <h2>Metode Pembayaran</h2>
+            <p>Pilih metode pembayaran yang Anda inginkan</p>
+            
+            <div class="payment-options">
+                <div class="payment-option">
+                    <h3 class="payment-title"><i class="fas fa-money-bill-wave"></i> DANA</h3>
+                    <div class="payment-info">
+                        <div class="payment-details">082172777855</div>
+                        <div class="payment-an">A/N: PE*** EL*** SA****</div>
+                    </div>
+                </div>
+                
+                <div class="payment-option">
+                    <h3 class="payment-title"><i class="fab fa-google-wallet"></i> GOPAY</h3>
+                    <div class="payment-info">
+                        <div class="payment-details">085931081614</div>
+                        <div class="payment-an">A/N: GA ADA</div>
+                    </div>
+                </div>
+                
+                <div class="payment-option">
+                    <h3 class="payment-title"><i class="fas fa-qrcode"></i> QRIS</h3>
+                    <div class="payment-info">
+                        <div class="payment-an">A/N: DI QRIS BESERTA BUKTINYA</div>
+                        <div class="qris-image">
+                            <img src="https://files.catbox.moe/1cemws.jpeg" alt="QRIS Payment Code">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="note">
+                <i class="fas fa-exclamation-circle"></i> Harap transfer sesuai nominal yang tertera untuk mempermudah proses verifikasi.
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 ALL INFO KAIINAKAMURA | Support: admin@kaiinakamura.com</p>
+            <p>Website resmi layanan murlog bvian dan suntik murid terpercaya</p>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Nonaktifkan semua tab
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Aktifkan tab yang dipilih
+            if (tabName === 'store') {
+                document.querySelector('.tab:first-child').classList.add('active');
+                document.getElementById('store-tab').classList.add('active');
+            } else {
+                document.querySelector('.tab:last-child').classList.add('active');
+                document.getElementById('payment-tab').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
